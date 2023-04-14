@@ -35,7 +35,7 @@ foreach($data as $key_data => $value) {
 }
 // Trả về dữ liệu dưới dạng JSON
 header('Content-Type: application/json');
-// echo json_encode($data);
+echo json_encode($data);
 
 // Đóng kết nối
 $conn->close();

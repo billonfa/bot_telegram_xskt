@@ -20,10 +20,10 @@ if ($result->num_rows > 0) {
   }
 }
 $text_show = "KQ xổ số miền Nam ngày ";
+$chuoi_thoi_gian = $data[0]['created_at'];
+$ngay_thang_nam = date("Y-m-d", strtotime($chuoi_thoi_gian));
+$text_show = $text_show . $ngay_thang_nam . "\n";
 foreach($data as $key_data => $value) {
-  $chuoi_thoi_gian = $value['created_at'];
-  $ngay_thang_nam = date("Y-m-d", strtotime($chuoi_thoi_gian));
-  $text_show = $text_show . $ngay_thang_nam . "\n";
   $value['g6'] = json_decode($value['g6']);
   $value['g4'] = json_decode($value['g4']);
   $value['g3'] = json_decode($value['g3']);

@@ -1,3 +1,5 @@
+
+
 /* Demo purposes only */
 $(".hover").mouseleave(
     function () {
@@ -304,7 +306,7 @@ $(".hover").mouseleave(
         const year = date.getFullYear().toString();
         const formatted_date = `${day}-${month}-${year}`;
         const colspan = data.length + 1
-        var row_header = '<th class="header_table" colspan = "'+ colspan +'"> Kết quả xổ số miền Trung - Ngày '+ formatted_date +'</th>'
+        var row_header = '<th class="header_table" colspan = "'+ colspan +'"> Kết quả xổ số miền Nam - Ngày '+ formatted_date +'</th>'
         $('#myTable thead').append(row_header);
 
         for (var i = 0; i < 10; i++) {

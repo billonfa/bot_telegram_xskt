@@ -8,7 +8,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-
 // Lấy dữ liệu từ bảng users
 $sql = "SELECT * FROM data_xskt_mt WHERE created_at = '$date'";
 $result = $conn->query($sql);
@@ -21,10 +20,10 @@ if ($result->num_rows > 0) {
   }
 }
 $text_show = "KQ xổ số miền Trung ngày ";
+$chuoi_thoi_gian = $data[0]['created_at'];
+$ngay_thang_nam = date("Y-m-d", strtotime($chuoi_thoi_gian));
+$text_show = $text_show . $ngay_thang_nam . "\n";
 foreach($data as $key_data => $value) {
-  $chuoi_thoi_gian = $value['created_at'];
-  $ngay_thang_nam = date("Y-m-d", strtotime($chuoi_thoi_gian));
-  $text_show = $text_show . $ngay_thang_nam . "\n";
   $value['g6'] = json_decode($value['g6']);
   $value['g4'] = json_decode($value['g4']);
   $value['g3'] = json_decode($value['g3']);
@@ -53,9 +52,7 @@ foreach($data as $key_data => $value) {
   $value['gdb'] = "GDB: " .$value['gdb'];
  
   $text_show = $text_show . $value['name_dai'] . "\n" .$value['g8'] . "\n" . $value['g7'] . "\n" . $new_i6. "\n" . $value['g5'] . "\n" . $new_i4 . "\n" . $new_i3. "\n" . $value['g2'] . "\n" .$value['g1']. "\n" . $value['gdb']  ;
-
 }
-// echo $text_show;
 // Trả về dữ liệu dưới dạng JSON
 header('Content-Type: application/json');
 echo json_encode($data);

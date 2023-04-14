@@ -56,7 +56,6 @@ foreach($data as $key_data => $value) {
   foreach($value['g2'] as $key_g2 => $item_g2) {
     $new_i2 = $new_i2 . $item_g2 . " ";
   }
-  var_dump($value);
   $value['g1'] = "G1: " . $value['g1'];
   $value['gdb'] = "GDB: " .$value['gdb'];
  
@@ -66,7 +65,7 @@ foreach($data as $key_data => $value) {
 
 // Trả về dữ liệu dưới dạng JSON
 header('Content-Type: application/json');
-// echo json_encode($data);
+echo json_encode($data);
 
 // Đóng kết nối
 $conn->close();
